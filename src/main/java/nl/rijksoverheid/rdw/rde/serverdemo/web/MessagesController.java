@@ -2,6 +2,8 @@ package nl.rijksoverheid.rdw.rde.serverdemo.web;
 
 //import nl.rijksoverheid.rdw.rde.serverdemo.api.*;
 //import nl.rijksoverheid.rdw.rde.serverdemo.commands.*;
+import nl.rijksoverheid.rdw.rde.serverdemo.components.SecurityService;
+import nl.rijksoverheid.rdw.rde.serverdemo.repositories.MessageRepository;
 import nl.rijksoverheid.rdw.rde.serverdemo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,28 +21,24 @@ public class MessagesController {
 //    //TODO move inside send command
 //    @Autowired
 //    DocumentRepository documentRepository;
-//
-//    //TODO move inside send command?
-//    @Autowired
-//    MessageRepository messageRepository;
-//
-//    @Autowired
-//    UserRepository userRepository;
-//
-//    //TODO move inside send command
-//    @Autowired
-//    UsernameProvider usernameProvider;
-//
-////    @Autowired
-////    SendMessageCommand sendMessageCommand;
+
+    //TODO move inside send command?
+    @Autowired
+    MessageRepository messageRepository;
+
+    @Autowired
+    UserRepository userRepository;
 
 //    @Autowired
-//    CurrentAuthenticatedUserProvider currentAuthenticatedUserProvider;
+//    SendMessageCommand sendMessageCommand;
+
+    @Autowired
+    SecurityService currentAuthenticatedUserProvider;
 
     @GetMapping("/messages")
     public String index(Model model) {
-//        var items = messageRepository.findByUser(currentAuthenticatedUserProvider.getUserEmailAddress());
-//        model.addAttribute("messages", items);
+        var items = messageRepository.findByUser(currentAuthenticatedUserProvider.findLoggedInUsername());
+        model.addAttribute("messages", items);
         return "/messages/index";
     }
 

@@ -1,6 +1,7 @@
 package nl.rijksoverheid.rdw.rde.serverdemo.entities;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "UserAccounts")
@@ -14,7 +15,7 @@ public class User {
     private String password;
 
 //    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    private Collection <Document> documents;
+//    private Collection<Document> documents;
 
     private String documentEnrollmentId;
 
@@ -55,6 +56,7 @@ public class User {
 //    public Collection < Document > getDocuments() {
 //        return documents;
 //    }
+//
 //    public void setDocuments (Collection<Document> documents) {
 //        this.documents = documents;
 //    }
