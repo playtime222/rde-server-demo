@@ -6,11 +6,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+@EnableWebSecurity
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
@@ -52,16 +54,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
                 .and()
                 .authorizeRequests()
-                .antMatchers("/documents/**").authenticated()
+                //.antMatchers("/documents/**").authenticated()
                 .antMatchers("/messages/**").authenticated()
-                .antMatchers("/api**").authenticated()
+                //.anyRequest().authenticated()
+                //.antMatchers("/api/**").authenticated()
                 .and()
                 .httpBasic()
                 .realmName(REALM)
                 //.authenticationEntryPoint(getBasicAuthEntryPoint())
 
                 .and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
 
                 .and()
                 .formLogin()
@@ -80,24 +83,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .permitAll();
     }
 
-
-
-
-//    @Bean
-//    public CustomBasicAuthenticationEntryPoint getBasicAuthEntryPoint(){
-//        return new CustomBasicAuthenticationEntryPoint();
-//    }
-
-//    @Bean
-//    public DaoAuthenticationProvider authenticationProvider() {
-//        var auth = new DaoAuthenticationProvider();
-//        auth.setUserDetailsService(userService);
-//        auth.setPasswordEncoder(passwordEncoder());
-//        return auth;
-//    }
-//
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.authenticationProvider(authenticationProvider());
-//    }
 }
