@@ -1,11 +1,11 @@
-package nl.rijksoverheid.rdw.rde.serverlib;
+package nl.rijksoverheid.rdw.rde.serverlib.remoteapi;
 
 public class MessageInfoDto
 {
     private long id;
     private String whenSent;
     private String from;
-    private String to;
+    private String document;
     private String note;
     private String url;
 
@@ -42,14 +42,14 @@ public class MessageInfoDto
         this.from = from;
     }
 
-    public String getTo()
+    public String getDocument()
     {
-        return to;
+        return document;
     }
 
-    public void setTo(final String to)
+    public void setDocument(final String to)
     {
-        this.to = to;
+        this.document = to;
     }
 
     public String getNote()

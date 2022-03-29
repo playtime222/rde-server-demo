@@ -55,9 +55,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
                 .and()
                 .authorizeRequests()
-                //.antMatchers("/documents/**").authenticated()
+                .antMatchers("/documents/**").authenticated()
                 .antMatchers("/messages/**").authenticated()
-                //.anyRequest().authenticated()
+                .antMatchers("/messages2/**").authenticated()
                 .antMatchers("/api/**").authenticated()
                 .and()
                 .httpBasic()

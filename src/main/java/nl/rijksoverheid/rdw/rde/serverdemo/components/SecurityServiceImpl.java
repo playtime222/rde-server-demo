@@ -1,8 +1,11 @@
 package nl.rijksoverheid.rdw.rde.serverdemo.components;
 
+import nl.rijksoverheid.rdw.rde.serverdemo.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -24,11 +27,17 @@ public class SecurityServiceImpl implements SecurityService {
 
     @Override
     public String findLoggedInUsername() {
-        var userDetails = SecurityContextHolder.getContext().getAuthentication().getDetails();
-        if (userDetails instanceof UserDetails) {
-            return ((UserDetails) userDetails).getUsername();
+        var context = SecurityContextHolder.getContext();
+        var authentication = context.getAuthentication();
+        var principle = authentication.getPrincipal();
+        if (principle instanceof org.springframework.security.core.userdetails.User)
+        {
+            return ((org.springframework.security.core.userdetails.User)principle).getUsername();
         }
-
+//        var userDetails = authentication.getDetails();
+//        if (userDetails instanceof UserDetails) {
+//            return ((UserDetails) userDetails).getUsername();
+//        }
         return null;
     }
     @Override

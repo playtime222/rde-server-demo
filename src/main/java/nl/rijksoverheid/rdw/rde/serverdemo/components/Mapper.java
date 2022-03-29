@@ -2,8 +2,8 @@ package nl.rijksoverheid.rdw.rde.serverdemo.components;
 
 import nl.rijksoverheid.rdw.rde.serverdemo.commands.EnrollDocumentArgs;
 import nl.rijksoverheid.rdw.rde.serverdemo.repositories.MessageMetadata;
-import nl.rijksoverheid.rdw.rde.serverlib.EnrollDocumentDto;
-import nl.rijksoverheid.rdw.rde.serverlib.MessageInfoDto;
+import nl.rijksoverheid.rdw.rde.serverlib.remoteapi.EnrollDocumentDto;
+import nl.rijksoverheid.rdw.rde.serverlib.remoteapi.MessageInfoDto;
 
 public class Mapper {
 
@@ -44,7 +44,7 @@ public class Mapper {
         result.setWhenSent(item.getWhenSent().toString()); //TODO format?
         result.setFrom(item.getFromUser());
         result.setNote(item.getNote());
-        result.setTo(item.getToUser());
+        result.setDocument(item.getDocumentName());
         return result;
     }
 }

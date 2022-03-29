@@ -4,9 +4,9 @@ import nl.rijksoverheid.rdw.rde.serverdemo.commands.GetSingleMessageContentComma
 import nl.rijksoverheid.rdw.rde.serverdemo.commands.ListMessagesCommand;
 import nl.rijksoverheid.rdw.rde.serverdemo.components.Mapper;
 import nl.rijksoverheid.rdw.rde.serverdemo.components.UrlProvider;
-import nl.rijksoverheid.rdw.rde.serverlib.MessageGetResult;
-import nl.rijksoverheid.rdw.rde.serverlib.MessageInfoDto;
-import nl.rijksoverheid.rdw.rde.serverlib.MessageListResult;
+import nl.rijksoverheid.rdw.rde.serverlib.remoteapi.MessageGetResult;
+import nl.rijksoverheid.rdw.rde.serverlib.remoteapi.MessageInfoDto;
+import nl.rijksoverheid.rdw.rde.serverlib.remoteapi.MessageListResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -12,7 +12,7 @@ import java.util.List;
 public interface MessageRepository extends JpaRepository<Message, Long> {
 
     //TODO paging...
-    @Query("select new nl.rijksoverheid.rdw.rde.serverdemo.repositories.MessageMetadata(m.id, m.whenSent, m.fromUser.username, m.note) from Message m where m.document.owner.email = :emailAddress")
+    @Query("select new nl.rijksoverheid.rdw.rde.serverdemo.repositories.MessageMetadata(m.id, m.whenSent, m.fromUser.email, m.note, m.document.displayName) from Message m where m.document.owner.email = :emailAddress")
     List<MessageMetadata> findByUser(@Param("emailAddress")  String emailAddress);
 
     @Query("select m.content from Message m where m.id = :id and m.document.owner.email = :emailAddress")

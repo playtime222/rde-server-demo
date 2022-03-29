@@ -1,4 +1,4 @@
-package nl.rijksoverheid.rdw.rde.serverlib;
+package nl.rijksoverheid.rdw.rde.serverlib.remoteapi;
 
 public class EnrollDocumentDto {
 
