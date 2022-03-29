@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class MessageController {
+public class ApiMessageController {
 
     @Autowired
     GetSingleMessageContentCommand getSingleMessageContentCommand;
