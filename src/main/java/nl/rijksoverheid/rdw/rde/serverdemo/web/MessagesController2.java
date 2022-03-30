@@ -65,7 +65,7 @@ public class MessagesController2 {
 
         var messageContentArgs = new MessageContentArgs();
         messageContentArgs.setUnencryptedNote(sendMessageDto.getNote());
-        messageContentArgs.Add(file);
+        messageContentArgs.add(file);
         messageContentArgs.setUnencryptedNote(sendMessageDto.getNote()); //Handover here
         //<<<Map DTO to args
 

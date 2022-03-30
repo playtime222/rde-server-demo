@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+
+@Deprecated
 //TODO add signatures and versions - zip in zip?
 //@Service
 public class ZipMessageFormatter implements MessageFormatter

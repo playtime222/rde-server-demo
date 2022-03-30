@@ -27,7 +27,7 @@ public class MessageContentArgs
         return result;
     }
 
-    public void Add(final FileArgs file)
+    public void add(final FileArgs file)
     {
         files.add(file);
     }

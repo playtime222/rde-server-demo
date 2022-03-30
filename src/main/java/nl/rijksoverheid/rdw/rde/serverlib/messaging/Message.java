@@ -3,7 +3,7 @@ package nl.rijksoverheid.rdw.rde.serverlib.messaging;
 /**
  * Unencrypted content
  */
-public class Message //implements Parcelable
+public class Message
 {
     private final String note;
     private final MessageCryptoArgs messageCryptoArgs;
@@ -30,16 +30,4 @@ public class Message //implements Parcelable
     {
         return files;
     }
-
-//    @Override
-//    public int describeContents()
-//    {
-//        return 0;
-//    }
-//
-//    @Override
-//    public void writeToParcel(final Parcel parcel, final int i)
-//    {
-//
-//    }
 }

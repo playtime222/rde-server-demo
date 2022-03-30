@@ -19,7 +19,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.zip.ZipInputStream;
 
-
+@Deprecated
 //@Service
 public class ZipMessageParser
 {
