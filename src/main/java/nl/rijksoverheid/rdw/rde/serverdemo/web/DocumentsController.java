@@ -1,7 +1,7 @@
 package nl.rijksoverheid.rdw.rde.serverdemo.web;
 
 import nl.rijksoverheid.rdw.rde.serverdemo.commands.EnrollDocumentStartCommand;
-import nl.rijksoverheid.rdw.rde.serverdemo.components.CurrentAuthenticatedUserProvider;
+import nl.rijksoverheid.rdw.rde.serverdemo.components.SecurityService;
 import nl.rijksoverheid.rdw.rde.serverdemo.repositories.DocumentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +19,7 @@ public class DocumentsController {
     DocumentRepository documentRepository;
 
     @Autowired
-    CurrentAuthenticatedUserProvider currentAuthenticatedUserProvider;
+    SecurityService currentAuthenticatedUserProvider;
 
     //Set an enrollment id and display it
     //TODO QR code
@@ -35,7 +35,7 @@ public class DocumentsController {
     @GetMapping("/documents")
     public String index(Model model)
     {
-        var emailAddress = currentAuthenticatedUserProvider.getUserEmailAddress();
+        var emailAddress = currentAuthenticatedUserProvider.findLoggedInUsername();
         var items = documentRepository.findByUserEmail(emailAddress);
         model.addAttribute("documents", items);
         return "documents/index";

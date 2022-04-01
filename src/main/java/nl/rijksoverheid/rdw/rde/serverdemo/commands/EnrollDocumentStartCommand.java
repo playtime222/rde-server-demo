@@ -1,8 +1,7 @@
 package nl.rijksoverheid.rdw.rde.serverdemo.commands;
 
-
-import nl.rijksoverheid.rdw.rde.serverdemo.components.CurrentAuthenticatedUserProvider;
 import nl.rijksoverheid.rdw.rde.serverdemo.components.DocumentEnrollmentIdGenerator;
+import nl.rijksoverheid.rdw.rde.serverdemo.components.SecurityService;
 import nl.rijksoverheid.rdw.rde.serverdemo.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +9,10 @@ import org.springframework.stereotype.Service;
 public class EnrollDocumentStartCommand {
 
     UserRepository userRepository;
-    CurrentAuthenticatedUserProvider userProvider;
+    SecurityService userProvider;
     DocumentEnrollmentIdGenerator documentEnrollmentIdGenerator;
 
-    public EnrollDocumentStartCommand(UserRepository userRepository, CurrentAuthenticatedUserProvider userProvider, DocumentEnrollmentIdGenerator documentEnrollmentIdGenerator) {
+    public EnrollDocumentStartCommand(UserRepository userRepository, SecurityService userProvider, DocumentEnrollmentIdGenerator documentEnrollmentIdGenerator) {
         this.userRepository = userRepository;
         this.userProvider = userProvider;
         this.documentEnrollmentIdGenerator = documentEnrollmentIdGenerator;
@@ -21,7 +20,7 @@ public class EnrollDocumentStartCommand {
 
     public String Execute()
     {
-        var emailAddress = userProvider.getUserEmailAddress();
+        var emailAddress = userProvider.findLoggedInUsername();
         var user = userRepository.findByEmail(emailAddress);
         var result = documentEnrollmentIdGenerator.Next();
         user.setDocumentEnrollmentId(result);

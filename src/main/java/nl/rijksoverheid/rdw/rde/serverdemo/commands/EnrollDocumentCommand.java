@@ -1,10 +1,11 @@
 package nl.rijksoverheid.rdw.rde.serverdemo.commands;
 
+import nl.rijksoverheid.rdw.rde.remoteapi.EnrollDocumentResult;
 import nl.rijksoverheid.rdw.rde.serverdemo.components.SecurityService;
 import nl.rijksoverheid.rdw.rde.serverdemo.entities.Document;
 import nl.rijksoverheid.rdw.rde.serverdemo.repositories.DocumentRepository;
 import nl.rijksoverheid.rdw.rde.serverdemo.repositories.UserRepository;
-import nl.rijksoverheid.rdw.rde.serverlib.remoteapi.EnrollDocumentResult;
+import nl.rijksoverheid.rdw.rde.remoteapi.EnrollDocumentResult;
 import org.springframework.stereotype.Service;
 
 @Service

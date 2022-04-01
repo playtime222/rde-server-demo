@@ -2,8 +2,8 @@ package nl.rijksoverheid.rdw.rde.serverdemo.components;
 
 import nl.rijksoverheid.rdw.rde.serverdemo.commands.EnrollDocumentArgs;
 import nl.rijksoverheid.rdw.rde.serverdemo.repositories.MessageMetadata;
-import nl.rijksoverheid.rdw.rde.serverlib.remoteapi.EnrollDocumentDto;
-import nl.rijksoverheid.rdw.rde.serverlib.remoteapi.MessageInfoDto;
+import nl.rijksoverheid.rdw.rde.remoteapi.EnrollDocumentDto;
+import nl.rijksoverheid.rdw.rde.remoteapi.MessageInfoDto;
 
 public class Mapper {
 

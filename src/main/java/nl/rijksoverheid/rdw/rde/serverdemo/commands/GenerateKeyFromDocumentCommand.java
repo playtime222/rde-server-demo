@@ -1,9 +1,9 @@
 package nl.rijksoverheid.rdw.rde.serverdemo.commands;
 
 import net.sf.scuba.smartcards.CardServiceException;
-import nl.rijksoverheid.rdw.rde.serverlib.apdusimulator.RdeDocumentSimulator;
+import nl.rijksoverheid.rdw.rde.apdusimulator.RdeDocumentSimulator;
 import nl.rijksoverheid.rdw.rde.serverdemo.repositories.DocumentRepository;
-import nl.rijksoverheid.rdw.rde.serverdemo.components.RbResponseToSecretKeyConverter;
+import nl.rijksoverheid.rdw.rde.crypto.RbResponseToSecretKeyConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

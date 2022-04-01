@@ -3,7 +3,7 @@ package nl.rijksoverheid.rdw.rde.serverdemo.api;
 import nl.rijksoverheid.rdw.rde.serverdemo.commands.*;
 import nl.rijksoverheid.rdw.rde.serverdemo.components.Mapper;
 import nl.rijksoverheid.rdw.rde.serverdemo.components.UrlProvider;
-import nl.rijksoverheid.rdw.rde.serverlib.remoteapi.*;
+import nl.rijksoverheid.rdw.rde.remoteapi.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

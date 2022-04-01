@@ -1,6 +1,6 @@
 package nl.rijksoverheid.rdw.rde.serverdemo.commands;
 
-import nl.rijksoverheid.rdw.rde.serverdemo.components.CurrentAuthenticatedUserProvider;
+import nl.rijksoverheid.rdw.rde.serverdemo.components.SecurityService;
 import nl.rijksoverheid.rdw.rde.serverdemo.repositories.MessageMetadata;
 import nl.rijksoverheid.rdw.rde.serverdemo.repositories.MessageRepository;
 import org.springframework.stereotype.Service;
@@ -11,14 +11,14 @@ import java.util.List;
 public class ListMessagesCommand
 {
     MessageRepository messageRepository;
-    CurrentAuthenticatedUserProvider userProvider;
+    SecurityService userProvider;
 
-    public ListMessagesCommand(MessageRepository messageRepository, CurrentAuthenticatedUserProvider userProvider) {
+    public ListMessagesCommand(MessageRepository messageRepository, SecurityService userProvider) {
         this.messageRepository = messageRepository;
         this.userProvider = userProvider;
     }
 
     public List<MessageMetadata> Execute() {
-        return messageRepository.findByUser(userProvider.getUserEmailAddress());
+        return messageRepository.findByUser(userProvider.findLoggedInUsername());
     }
 }

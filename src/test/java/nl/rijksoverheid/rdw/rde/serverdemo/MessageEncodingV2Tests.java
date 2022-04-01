@@ -1,10 +1,10 @@
 package nl.rijksoverheid.rdw.rde.serverdemo;
 
-import nl.rijksoverheid.rdw.rde.serverlib.messaging.FileArgs;
-import nl.rijksoverheid.rdw.rde.serverlib.messaging.MessageContentArgs;
-import nl.rijksoverheid.rdw.rde.serverlib.messaging.zipV2.RdeSessionArgs;
-import nl.rijksoverheid.rdw.rde.serverlib.messaging.zipV2.ZipMessageDecoder;
-import nl.rijksoverheid.rdw.rde.serverlib.messaging.zipV2.ZipMessageEncoder;
+import nl.rijksoverheid.rdw.rde.messaging.FileArgs;
+import nl.rijksoverheid.rdw.rde.messaging.MessageContentArgs;
+import nl.rijksoverheid.rdw.rde.messaging.RdeSessionArgs;
+import nl.rijksoverheid.rdw.rde.messaging.zipV2.ZipMessageDecoder;
+import nl.rijksoverheid.rdw.rde.messaging.zipV2.ZipMessageEncoder;
 import org.junit.jupiter.api.Test;
 
 import javax.crypto.BadPaddingException;
